@@ -1,11 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL:
-    "https://contactmanagerapibackend.vercel.app/",
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000",
 });
 
 export default API;
-// baseURL: "http://localhost:5000/api/contacts"
-
-// vercel url: https://contact-manager-backend.vercel.app
