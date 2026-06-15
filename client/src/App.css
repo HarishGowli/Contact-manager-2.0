@@ -1,0 +1,232 @@
+/* ===== General Page Styling ===== */
+body {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, rgba(59, 130, 246, 0.18), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.12), transparent 24%),
+    #eff4fb;
+  margin: 0;
+  min-height: 100vh;
+  color: #111827;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.app-card {
+  width: min(1180px, 100%);
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 32px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 32px;
+  padding: 30px;
+  box-shadow: 0 40px 90px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.07);
+}
+
+.panel-header {
+  margin-bottom: 24px;
+}
+
+.panel-header h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 2.2vw, 2.4rem);
+  letter-spacing: -0.03em;
+}
+
+.contact-form {
+  display: grid;
+  gap: 20px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field label {
+  color: #4b5563;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.contact-form input {
+  width: 100%;
+  min-height: 54px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: #f8fafc;
+  color: #111827;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-form input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+  outline: none;
+}
+
+.contact-form button {
+  width: fit-content;
+  padding: 14px 30px;
+  border-radius: 16px;
+  border: none;
+  background: #1d4ed8;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-1px);
+  background: #2563eb;
+}
+
+.contact-list {
+  display: grid;
+  gap: 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  min-height: 50px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: #f8fafc;
+  color: #111827;
+  font-size: 1rem;
+}
+
+.search-bar input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  outline: none;
+}
+
+.contact-cards {
+  display: grid;
+  gap: 18px;
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 20px 22px;
+  border-radius: 26px;
+  border: 1px solid rgba(229, 231, 235, 0.95);
+  background: #ffffff;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.06);
+}
+
+.contact-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+}
+
+.contact-info {
+  display: grid;
+  gap: 8px;
+}
+
+.contact-name {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.contact-phone,
+.contact-email {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-icon {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 14px;
+  background: rgba(243, 244, 246, 0.9);
+  color: #4b5563;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-icon:hover {
+  transform: translateY(-1px);
+  background: rgba(59, 130, 246, 0.12);
+  color: #1d4ed8;
+}
+
+.btn-icon.delete:hover {
+  background: rgba(220, 38, 38, 0.12);
+  color: #b91c1c;
+}
+
+@media (max-width: 980px) {
+  .app-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .app-card {
+    padding: 22px;
+    gap: 24px;
+  }
+
+  .panel {
+    padding: 24px;
+  }
+
+  .contact-card {
+    grid-template-columns: auto 1fr;
+  }
+
+  .contact-actions {
+    justify-self: end;
+  }
+}
