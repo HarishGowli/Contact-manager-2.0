@@ -14,19 +14,21 @@ const connectDB = async () => {
     }
     
     if (!dbUrl) {
-      throw new Error("Database URL is undefined. Check your .env file!");
+      console.error("❌ Database URL is undefined. Check your .env file!");
+      console.error("NODE_ENV:", process.env.NODE_ENV);
+      console.error("MONGO_DB_PROD exists?", !!process.env.MONGO_DB_PROD);
+      console.error("MONGO_DB_LOCAL exists?", !!process.env.MONGO_DB_LOCAL);
+      return;
     }
     
-    await mongoose.connect(dbUrl);
-    console.log(`DB CONNECTED - ${process.env.NODE_ENV === "production" ? "PRODUCTION" : "LOCAL"}`);
+    console.log("🔄 Connecting to MongoDB...");
+    await mongoose.connect(dbUrl, {
+      serverSelectionTimeoutMS: 5000, // Timeout after 5 seconds
+    });
+    console.log(`✅ DB CONNECTED - ${process.env.NODE_ENV === "production" ? "PRODUCTION" : "LOCAL"}`);
   } catch (err) {
-    console.log("DB ERROR MESSAGE:", err.message);
+    console.log("❌ DB ERROR MESSAGE:", err.message);
     console.log(err);
-    
-    // Don't exit the process in production
-    if (process.env.NODE_ENV !== "production") {
-      process.exit(1);
-    }
   }
 };
 
